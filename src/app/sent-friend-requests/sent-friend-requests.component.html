@@ -1,0 +1,31 @@
+<!-- <div class="row">
+    <div class="col-md-6 mx-auto">
+        <h2 style="text-align:center">Friend Requests Sent</h2>
+        <div class="card" style="width: 14rem;" *ngFor="let user of List">
+            <img class="card-img-top" src="https://image.flaticon.com/icons/svg/21/21104.svg" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title">{{user.FirstName}} {{user.LastName}}</h5>
+              
+          </div>
+    </div>
+  </div> -->
+
+<!--  -->
+
+<div class="row">
+  <div class="col-md-6 mx-auto">
+    <h2 style="text-align:center">Friend Requests Sent</h2>
+    <br>
+    <hr>
+  </div>
+</div>
+<div class="row mx-auto" style="width:50%;margin-top:8px" *ngFor="let user of List">
+  <div class="col-md-6 mx-auto">
+    <h5 class="card-title">{{user.FirstName}} {{user.LastName}}</h5>
+  </div>
+  <div class="col-md-6 mx-auto">
+    <a class="btn btn-default" style="border:1px solid #ccc">Friend request sent &#10004;</a>
+    <a class="btn btn-danger" style="border:1px solid rgb(139, 130, 130);margin-left: 5%" (click)="declineFriendRequest(user.Id,4)">Decline </a>
+  </div>
+
+</div>
