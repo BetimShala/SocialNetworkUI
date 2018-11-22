@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FriendShipService } from '../services/friendship.service';
 import { Friend } from '../models/friend';
 import { HttpClient } from '@angular/common/http';
-
+import {AppSettings} from "appSettings";
 @Component({
   selector: 'app-find-friends',
   templateUrl: './find-friends.component.html',
@@ -30,7 +30,7 @@ export class FindFriendsComponent implements OnInit {
     const type = "Success";
     const Payload = localStorage.getItem('currentUserFullName')+" has sent you a friend request";
     this.http.post(
-      "https://localhost:44392/api/message",
+      AppSettings.uri+"/api/message",
     {type,
       Payload}
     ).subscribe(
