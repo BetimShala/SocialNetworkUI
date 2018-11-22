@@ -1,7 +1,6 @@
 <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4">
     <a class="navbar-brand" routerLink="/">Social Networks</a>
     
-    <p-growl *ngIf="showMessage" [(value)]="msgs"></p-growl>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -21,7 +20,9 @@
         <li class="nav-item">
             <a class="nav-link" routerLinkActive="active" routerLink="/friends/req/recv">Friend Requests</a> 
         </li>  
-        
+        <li class="nav-item" style="margin-left: 180px;font-size: 18px;color:red">
+          <p-growl *ngIf="showMessage" [(value)]="msgs"></p-growl>
+        </li>
         
       </ul>
       <ul *ngIf="status" class="navbar-nav ml-auto">
