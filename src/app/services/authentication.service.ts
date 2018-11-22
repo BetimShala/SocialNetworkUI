@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject, Observable, from } from 'rxjs';
 import { map } from 'rxjs/operators';
-
+import {AppSettings} from "appSettings";
 import { User } from '../models/user';
 import { Router } from '@angular/router';
 
@@ -24,11 +24,11 @@ export class AuthenticationService {
 
   register(user: User) {
     console.log(user);
-    return this.http.post(`https://localhost:44392/api/auth/register`, user);
+    return this.http.post(AppSettings.uri+`/api/auth/register`, user);
   }
 
   login(email: string, password: string, returnUrl: string) {
-    return this.http.post(`https://localhost:44392/api/auth/login`, { email, password }, { responseType: 'json' })
+    return this.http.post(AppSettings.uri+`/api/auth/login`, { email, password }, { responseType: 'json' })
       .subscribe(data => {
         console.log(data);
         if (data!=false) {
